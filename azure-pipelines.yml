@@ -9,6 +9,8 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  regname: testreg2022.azurecr.io
 steps:
 - task: NodeTool@0
   inputs:
@@ -27,4 +29,4 @@ steps:
     command: 'build'
     Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
     tags: |
-      $(tag)
+      $regname/react-app:$(tag)
