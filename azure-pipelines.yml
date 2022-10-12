@@ -10,10 +10,10 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-   imageRepository: 'mycontainer'
-   containerRegistry: 'testreg2022.azurecr.io'
-   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-   tag: '$(Build.BuildId)'
+  imageRepository: 'mycontainer'
+  containerRegistry: 'testreg2022.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  tag: '$(Build.BuildId)'
 
 
 steps:
