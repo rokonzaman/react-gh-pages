@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
- variables:
+variables:
    imageRepository: 'mycontainer'
    containerRegistry: 'testreg2022.azurecr.io'
    dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
