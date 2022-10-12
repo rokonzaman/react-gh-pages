@@ -22,11 +22,19 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- task: Docker@2
-  inputs:
+#- task: Docker@2
+#  inputs:
 #    repository: 'reg'
 #    command: 'buildAndPush'
-    command: 'build'
+#    command: 'build'
+#    Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+#    tags: |
+#      $regname/react-app:$(tag)
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'azure-registry'
+    repository: 'react-app'
+    command: 'buildAndPush'
     Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-    tags: |
-      $regname/react-app:$(tag)
+    tags: 'testreg2022.azurecr.io/react-app:$(Build.BuildId)'
