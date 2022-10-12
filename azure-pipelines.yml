@@ -9,8 +9,13 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-variables:
-  regname: testreg2022.azurecr.io
+ variables:
+   imageRepository: 'mycontainer'
+   containerRegistry: 'testreg2022.azurecr.io'
+   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+   tag: '$(Build.BuildId)'
+
+
 steps:
 - task: NodeTool@0
   inputs:
@@ -33,8 +38,8 @@ steps:
 
 - task: Docker@2
   inputs:
-    containerRegistry: 'azure-registry'
+    containerRegistry: 'testreg2022.azurecr.io'
     repository: 'react-app'
     command: 'buildAndPush'
     Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-    tags: 'testreg2022.azurecr.io/react-app:$(Build.BuildId)'
+    tags: '$(containerRegistry)/react-app:$(Build.BuildId)'
