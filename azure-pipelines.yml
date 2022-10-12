@@ -33,9 +33,11 @@ steps:
     containerRegistry: 'acr'
     repository: 'react'
     command: 'buildAndPush'
-    Dockerfile: '$(Build.SourcesDirectory)/Dockerfile''
+    Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
      tags: |
        $(tag)
+
+
 
 
 
