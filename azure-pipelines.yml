@@ -34,8 +34,8 @@ steps:
     repository: 'react'
     command: 'buildAndPush'
     Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-     tags: |
-       $(tag)
+    tags: |
+      $(tag)
 
 
 
