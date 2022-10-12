@@ -19,3 +19,12 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+
+- task: Docker@2
+  inputs:
+#    repository: 'reg'
+#    command: 'buildAndPush'
+    command: 'build'
+    Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+    tags: |
+      $(tag)
