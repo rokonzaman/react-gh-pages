@@ -41,5 +41,4 @@ steps:
     repository: 'react-app'
     command: 'buildAndPush'
     Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-    tags: |
-      $regname/react-app:$(tag)
+    tags: testreg2022.azurecr.io/react-app:latest
