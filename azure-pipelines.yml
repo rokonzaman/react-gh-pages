@@ -32,14 +32,16 @@ steps:
 #    repository: 'reg'
 #    command: 'buildAndPush'
 #    command: 'build'
-#    Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-#    tags: |
-#      $regname/react-app:$(tag)
+#    Dockerfile: '
+
 
 - task: Docker@2
   inputs:
-    containerRegistry: 'testreg2022.azurecr.io'
+    containerRegistry: 'acr'
     repository: 'react-app'
     command: 'buildAndPush'
-    Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-    tags: '$(containerRegistry)/react-app:$(Build.BuildId)'
+    Dockerfile: '$(Build.SourcesDirectory)/Dockerfile''
+    tags: |
+      $regname/react-app:$(tag)
+
+
