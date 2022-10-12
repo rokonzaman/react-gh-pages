@@ -9,11 +9,11 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-variables:
-  imageRepository: 'mycontainer'
-  containerRegistry: 'testreg2022.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
+#variables:
+#  imageRepository: 'mycontainer'
+#  containerRegistry: 'testreg2022.azurecr.io'
+#  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+#  tag: '$(Build.BuildId)'
 
 
 steps:
@@ -43,5 +43,3 @@ steps:
     Dockerfile: '$(Build.SourcesDirectory)/Dockerfile''
     tags: |
       $regname/react-app:$(tag)
-
-
