@@ -1,15 +1,11 @@
-FROM node:16-alpine
-
-ENV NODE_ENV production
-
+FROM node:16-alpine as builder
+MAINTAINER Rokon
 WORKDIR /app
 
-COPY ./node_modules /app/node_modules/
-COPY ./dist /app/dist/
-COPY ./package*.json /app/
-RUN mkdir /app/public
+COPY package.json .
+RUN npm install
+COPY . .
+RUN npm run build
 
-RUN npm cache clean --force && npm install --only=production
-
-EXPOSE 7003
-CMD ["node", "dist/main"]
+FROM nginx
+COPY --from=builder /app/build /usr/share/nginx/html
